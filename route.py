@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-from flask import Flask  , jsonify
-import json
+from flask import Flask  , jsonify, json
 import requests
 
 app = Flask(__name__)
 
-from functions import extract_keywords
+#from functions import extract_keywords
 
 NEWS_API_KEY = "3ddb16b4b9cc4349bee1349bfbea326b"
 
@@ -24,13 +23,12 @@ def get_news():
 	response = requests.get(NEWS_API_URL)
 	content  =json.loads(response.content.decode('utf-8'))
 
-	keywords, articles = extract_keywords(content["articles"])
+	#keywords, articles = extract_keywords(content["articles"])
 
 	return jsonify({
 		'status': 'ok',
 		'data': {
-			'keywords' : keywords[:100],
-			'articles' : articles
+			'keywords' : content
 		}
 		})
 
