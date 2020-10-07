@@ -4,7 +4,7 @@ import requests
 
 app = Flask(__name__)
 
-from functions import extract_word
+from functions import extractWords
 
 NEWS_API_KEY = "3ddb16b4b9cc4349bee1349bfbea326b"
 
@@ -25,7 +25,7 @@ def get_news():
 
 	#keywords, articles = extract_keywords(content["articles"])
 
-	extract_word(content["articles"])
+	re = extractWords(content["articles"])
 
 	test = content["articles"][0]
 
