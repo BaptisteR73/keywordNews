@@ -1,8 +1,10 @@
-# -*- coding: utf-8 -*-
+# -*- coding: Utf-8 -*-
 from flask import Flask, jsonify, json
+from collections import OrderedDict
 import requests
 
 app = Flask(__name__)
+app.config['JSON_SORT_KEYS'] = False # Pour éviter que Flask réordonne notre dictionnaire par ordre alphabétique
 
 from functions import extractWords
 
@@ -23,13 +25,14 @@ def get_news():
 	response = requests.get(NEWS_API_URL)
 	content  =json.loads(response.content.decode('utf-8'))
 
-	#keywords, articles = extract_keywords(content["articles"])
+	keywords = extractWords(content["articles"])
 
-	re = extractWords(content["articles"])
-
-	test = content["articles"][0]
-
-	return content
+	return jsonify({
+        'status'   : 'ok',
+        'data'     :{
+            'keywords' : keywords # On retourne uniquement les 100 premiers mots
+        }
+    })
 
 @app.route('/<name>')
 def hello_name(name):
