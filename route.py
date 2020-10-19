@@ -1,5 +1,5 @@
 # -*- coding: Utf-8 -*-
-from flask import Flask, jsonify, json
+from flask import Flask, jsonify, json, render_template
 from collections import OrderedDict
 import requests
 
@@ -33,6 +33,10 @@ def get_news():
             'keywords' : keywords # On retourne uniquement les 100 premiers mots
         }
     })
+
+@app.route('/dashboard/')
+def dashboard():
+    return render_template('main.html')
 
 @app.route('/<name>')
 def hello_name(name):

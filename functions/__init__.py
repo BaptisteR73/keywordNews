@@ -1,8 +1,7 @@
-from collections import OrderedDict
 import re
 
 def extractWords(text):
-	keywords = OrderedDict()
+	keywords = {}
 	listUrl = {}
 	listOfWords = []
 
