@@ -20,18 +20,22 @@ def extractWords(text):
 			if word not in keywords:   # Pour chaque mort
 				keywords[word] = 1     # On initialise un compteur à 1
 				listUrl[word] = [url]  # On initialise un tableau d'url
+				listUrl[word].append(title)
 
 			else :
 				keywords[word] +=1
 				if(url  not in listUrl[word]): # Si l'url n'est pas présente dans le tableau, on l'ajoute
 					listUrl[word].append(url)
+					listUrl[word].append(title)
+
 
 	sortedKeyWord = sorted(keywords.items(), key=lambda x: x[1], reverse=True) # Tri des mots qui reviennent le plus souvent
 	keywords.clear() # On va re créer notre dictionnaire de données
+	print(listUrl)
 	for y in sortedKeyWord:
 		keywords[y[0]] = {       # Pour chaque mot
 			'compteur':y[1],     # Son compteur d'apparition
-			'url':listUrl[y[0]]  # Sa liste d'URL
+			'url':listUrl[y[0]],  # Sa liste d'URL
 		}
 
 	return keywords
