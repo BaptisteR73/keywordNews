@@ -31,7 +31,6 @@ def extractWords(text):
 
 	sortedKeyWord = sorted(keywords.items(), key=lambda x: x[1], reverse=True) # Tri des mots qui reviennent le plus souvent
 	keywords.clear() # On va re créer notre dictionnaire de données
-	print(listUrl)
 	for y in sortedKeyWord:
 		keywords[y[0]] = {       # Pour chaque mot
 			'compteur':y[1],     # Son compteur d'apparition

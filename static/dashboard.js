@@ -12,7 +12,6 @@ $( document ).ready(function() {
 		});
 
 	function setupData(result){
-		console.log(result);
 	    var newsData = result['data'];
 	    var words = newsData['keywords'];
 
@@ -40,7 +39,7 @@ $( document ).ready(function() {
     	var tab = $("#tableauArticles table");
     	var cpt = 0;
     	var link;
-    	tab.append("<tr><th>Mots</th><th>Lien</th></tr>");
+    	tab.append("<tr><th>Mots</th><th>Liens</th></tr>");
 
 		for(i in words){
 			if(words[i]['compteur'] > 2 ){

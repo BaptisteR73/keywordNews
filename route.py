@@ -16,8 +16,8 @@ else:
 	NEWS_API_URL = "http://newsapi.org/v2/top-headlines?country=fr&apiKey="+NEWS_API_KEY
 
 @app.route("/")
-def hello():
-    return "Hello World!"
+def dashboard():
+    return render_template('main.html')
 
 @app.route("/api/news/")
 def get_news():
@@ -34,13 +34,10 @@ def get_news():
         }
     })
 
-@app.route('/dashboard/')
-def dashboard():
-    return render_template('main.html')
 
 @app.route('/<name>')
 def hello_name(name):
-	return "Hello {}!".format(name)
+	return "Wrong URL for localhost:5000/{}".format(name)
 
 if __name__ == "__main__":
     app.run(debug=True)

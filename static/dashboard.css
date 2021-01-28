@@ -8,7 +8,7 @@ table{
 }
 
 th, td{
-  border: 1px solid black;
+  border: 2px solid black;
   padding: 10px;
 }
 
@@ -19,4 +19,36 @@ th, td{
 body {
 background-color : #1c1c1e ;
 color : #fefefe ;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+a:link {
+  color: #dedae0;
+}
+
+a:focus {
+  border-bottom: 1px solid;
+  background: #dedae0;
+  color: white;
+}
+
+a:hover {
+  border-bottom: 1px solid;
+    background: #7f7d80;
+  color: white;;
+}
+
+#tableauArticles {
+
+	padding:10px;
+	display: inline-block;
+}
+
+#listeArticles {
+	text-align: center;
 }
